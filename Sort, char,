@@ -76,6 +76,16 @@ from console_dates
 order by platform_alive;
 
 
+/*------date type conversion-----*/
+
+select cast(game_year as varchar(4))
+-- select game_year:: varchar(4)
+-- select to_date(cast(game_year as varchar(4)),'yyyy')
+from console_games
+order by game_rank;
+
+
+
 
 
 

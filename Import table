@@ -23,10 +23,16 @@ CREATE TABLE consumer_complaints (
 COPY consumer_complaints FROM 'C:\Users\bice_rachel\Desktop\SQL A-Z\Section3\ConsumerComplaints.csv' DELIMITER ',' CSV HEADER;
 
 -- MAC
-COPY consumer_complaints FROM '/users/ilyaeremenko/Desktop/ConsumerComplaints.csv' DELIMITER ',' CSV HEADER;
+COPY consumer_complaints FROM '/users/bice_rachel/Desktop/ConsumerComplaints.csv' DELIMITER ',' CSV HEADER;
 
 
 /*----select clause----*/
+
+select * 
+from consumer_complaints
+
+select count(product_name)
+from consumer_complaints
 
 select product_name, issue, state_name, company, tags, timely_response
 From consumer_complaints
@@ -38,18 +44,4 @@ from consumer_complaints
 where upper(product_name) like '%CREDIT%'
 -- where zip_code like '__4__'
 -- where zip_code not like '4%'
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

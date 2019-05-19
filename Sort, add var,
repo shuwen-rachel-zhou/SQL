@@ -25,12 +25,36 @@ CREATE TABLE console_dates (
 -- WINDOWS
 COPY console_dates FROM 'C:\Users\bice_rachel\Desktop\SQL A-Z\Section5\ConsoleDates.csv' DELIMITER ',' CSV HEADER;
 
+/*-----add variable-----*/
 
 select *
 from console_games;
 
 alter table console_games
 add column global_sales float8;
+-- add column na_sales_percent float8;
 
 update console_games
 set global_sales = na_sales +eu_sales +jp_sales + other_sales;
+-- set na_sales_percent = na_sales/global_sales*100
+-- where global_sales >0;
+
+
+/*------sort variable-----*/
+
+select *
+from console_games
+order by game_rank ASC;
+-- order by platform ASC, game_year DESC;
+
+
+/*------character variable-----*/
+
+select game_name, length(game_name)
+from console_games
+
+select publisher, left(publisher, 4)
+from console_games
+
+select genre, reverse(genre)
+from console_games

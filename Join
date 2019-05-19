@@ -45,3 +45,32 @@ CREATE TABLE procedurehistory (
 -- WINDOWS
 COPY procedurehistory FROM 'C:\Users\bice_rachel\Desktop\SQL A-Z\Section7\ProceduresHistory-1.csv' DELIMITER ',' CSV HEADER;
 
+
+/*----left join---*/
+
+select *
+from pets;
+
+select *
+from owners;
+
+select *
+-- select pets.name,owners.name
+from pets 
+left join owners
+on pets.ownerid = owners.ownerid
+
+
+/*----tips and tricks and right join---*/
+
+select a.name, b.name
+from pets as a
+left join owners as b 
+on a.ownerid= b.ownerid
+where left(a.name, 1) = left (b.name, 1);
+
+
+
+
+
+

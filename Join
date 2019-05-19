@@ -54,15 +54,16 @@ from pets;
 select *
 from owners;
 
-select *
--- select pets.name,owners.name
+select pets.name,owners.name
 from pets 
 left join owners
 on pets.ownerid = owners.ownerid
+-- where left(pets.name, 1) = left (owners.name, 1);
 
 
 /*----tips and tricks and right join---*/
 
+/*----allases for tables---*/
 select a.name, b.name
 from pets as a
 left join owners as b 
@@ -70,7 +71,65 @@ on a.ownerid= b.ownerid
 where left(a.name, 1) = left (b.name, 1);
 
 
+/*----allases for columns---*/
+select a.name as petname, b.name as ownername
+from pets as a
+left join owners as b 
+on a.ownerid= b.ownerid
+where left(a.name, 1) = left (b.name, 1);
 
 
+/*--- right join---*/
+select a.name as petname, b.name as ownername
+from owners as B
+right join pets as A 
+on a.ownerid= b.ownerid
+where left(a.name, 1) = left (b.name, 1);
+
+/*--- inner join---*/
+
+select *
+from pets;
+
+select *
+from procedurehistory;
+
+select *
+from pets as a 
+inner join procedurehistory as b
+on a.petid = b.petid
+
+/*--- full outer join---*/
+
+select *
+from pets as a 
+full outer join procedurehistory as b
+on a.petid = b.petid
+
+
+/*--- join on multiple fields---*/
+
+select *
+from procedurehistory;
+
+select *
+from proceduredetails;
+
+select *
+from procedurehistory as a 
+left join proceduredetails as b
+on a.proceduretype = b.proceduretype
+and a.proceduresubcode = b.proceduresubcode;
+
+
+/*--- complex joins---*/
+
+select *
+from pets as a 
+inner join procedurehistory as b
+on a.petid = b.petid
+left join proceduredetails as c
+on b.proceduretype = c.proceduretype
+and b.proceduresubcode = c.proceduresubcode;
 
 

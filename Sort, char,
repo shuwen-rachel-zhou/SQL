@@ -84,8 +84,17 @@ select cast(game_year as varchar(4))
 from console_games
 order by game_rank;
 
+/*------null value in dataset-----*/
+
+select *
+from console_games
+where jp_sales is null;
+-- where game_name='Brain Age: Train Your Brain in Minutes a Day'
 
 
+update console_games
+set jp_sales = round((na_sales + eu_sales +other_sales)/3)
+where game_name='Brain Age: Train Your Brain in Minutes a Day'
 
 
 

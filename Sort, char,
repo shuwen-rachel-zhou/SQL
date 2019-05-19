@@ -58,3 +58,24 @@ from console_games
 
 select genre, reverse(genre)
 from console_games
+
+
+/*------date variable-----*/
+
+select *,  (discontinued - first_retail_availability)/365 as years_existed 
+-- select *, date_part ('year', discontinued) - date_part('year',first_retail_availability) as years_existed 
+from console_dates
+order by years_existed;
+
+select count(platform_name)
+from console_dates
+where date_part('month', first_retail_availability)-11=0 or date_part('month', first_retail_availability)-12=0
+
+select *, age(discontinued, first_retail_availability) as platform_alive
+from console_dates
+order by platform_alive;
+
+
+
+
+
